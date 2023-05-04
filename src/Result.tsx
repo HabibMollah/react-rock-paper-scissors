@@ -1,4 +1,8 @@
-function Result() {
+interface Props {
+  botChoice: string;
+  userChoice: string;
+}
+function Result({ botChoice, userChoice }: Props) {
   return (
     <div className="grid grid-cols-3 m-2 mt-8 mb-4 text-2xl text-center font-medium">
       <div>
@@ -8,6 +12,9 @@ function Result() {
       <div>
         🤖 <br /> Bot
       </div>
+      <div className="font-normal text-xl my-4">{userChoice}</div>
+      <div></div>
+      <div className="font-normal text-xl my-4">{botChoice}</div>
     </div>
   );
 }

@@ -20,12 +20,12 @@ function App() {
   return (
     <div>
       <div>
-        <h1 className="text-4xl text-center mt-6 mb-10">
-          Choose your weapon between <br />
+        <h1 className="text-4xl tracking-widest font-bold text-center mt-6 mb-10">
+          Choose your weapon: <br />
           🪨 📜 ✂
         </h1>
         <Rock botChoice={botChoice} userChoice={choice} setChoice={setChoice} />
-        <Result />
+        <Result botChoice={botChoice} userChoice={choice} />
       </div>
     </div>
   );
