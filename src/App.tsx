@@ -3,9 +3,10 @@ import Result from './Result';
 import Rock from './Rock';
 
 function App() {
-  // this is user's
   const [choice, setChoice] = useState('');
   const [botChoice, setBotChoice] = useState('');
+  const [score, setScore] = useState(0);
+  const [botScore, setBotScore] = useState(0);
 
   // Bot's turn
   const choices = ['rock 🪨', 'paper 📜', 'scissors ✂'];
@@ -17,6 +18,29 @@ function App() {
     return choices[randomIndex()];
   }
 
+  // Decide who won
+
+  function judgement(computer: string, user: string) {
+    if (
+      (computer === 'rock 🪨' && user === 'scissors ✂') ||
+      (computer === 'paper 📜' && user === 'rock 🪨') ||
+      (computer === 'scissors ✂' && user === 'paper 📜')
+    )
+      return `🤖 You lose ${computer} beats ${user}`;
+
+    if (
+      (computer === 'rock 🪨' && user === 'paper 📜') ||
+      (computer === 'paper 📜' && user === 'scissors ✂') ||
+      (computer === 'scissors ✂' && user === 'rock 🪨')
+    )
+      return `🧠 You win ${user} beats ${computer}`;
+
+    if (computer === '' && user === '') return 'Choose one of the above';
+    return 'Tie 🤖 ⚔ 🧠';
+  }
+
+  const result = judgement(botChoice, choice);
+
   return (
     <div>
       <div>
@@ -25,13 +49,17 @@ function App() {
           🪨 📜 ✂
         </h1>
         <Rock
-          botChoice={botChoice}
           setBotChoice={setBotChoice}
           randomChoice={randomChoice}
-          userChoice={choice}
           setChoice={setChoice}
         />
-        <Result botChoice={botChoice} userChoice={choice} />
+        <Result
+          botChoice={botChoice}
+          botScore={botScore}
+          userChoice={choice}
+          score={score}
+          result={result}
+        />
       </div>
     </div>
   );
