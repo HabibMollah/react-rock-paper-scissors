@@ -2,9 +2,17 @@ interface Props {
   botChoice: string;
   userChoice: string;
   setChoice: (a: string) => void;
+  setBotChoice: (a: () => string) => void;
+  randomChoice: () => string;
 }
 
-function Rock({ botChoice, userChoice, setChoice }: Props) {
+function Rock({
+  botChoice,
+  setBotChoice,
+  randomChoice,
+  userChoice,
+  setChoice,
+}: Props) {
   // Decide who won
   function judgement(computer: string, user: string) {
     let result;
@@ -45,19 +53,28 @@ function Rock({ botChoice, userChoice, setChoice }: Props) {
     <div>
       <div className="grid grid-cols-3 gap-2 text-center font-thin">
         <div
-          onClick={() => setChoice('rock')}
+          onClick={() => {
+            setChoice('rock');
+            setBotChoice(randomChoice);
+          }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">🪨</div>
           <p>Rock</p>
         </div>
         <div
-          onClick={() => setChoice('paper')}
+          onClick={() => {
+            setChoice('paper');
+            setBotChoice(randomChoice);
+          }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">📜</div>
           <p>Paper</p>
         </div>
         <div
-          onClick={() => setChoice('scissor')}
+          onClick={() => {
+            setChoice('scissor');
+            setBotChoice(randomChoice);
+          }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">✂</div>
           <p>Scissors</p>

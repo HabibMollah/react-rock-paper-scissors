@@ -5,6 +5,7 @@ import Rock from './Rock';
 function App() {
   // this is user's
   const [choice, setChoice] = useState('');
+  const [botChoice, setBotChoice] = useState('');
 
   // Bot's turn
   const choices = ['rock', 'paper', 'scissor'];
@@ -12,10 +13,9 @@ function App() {
   const randomIndex = () => {
     return Math.floor(Math.random() * choices.length);
   };
-  function getComputerChoice() {
+  function randomChoice() {
     return choices[randomIndex()];
   }
-  const botChoice = getComputerChoice();
 
   return (
     <div>
@@ -24,7 +24,13 @@ function App() {
           Choose your weapon: <br />
           🪨 📜 ✂
         </h1>
-        <Rock botChoice={botChoice} userChoice={choice} setChoice={setChoice} />
+        <Rock
+          botChoice={botChoice}
+          setBotChoice={setBotChoice}
+          randomChoice={randomChoice}
+          userChoice={choice}
+          setChoice={setChoice}
+        />
         <Result botChoice={botChoice} userChoice={choice} />
       </div>
     </div>
