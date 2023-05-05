@@ -17,28 +17,28 @@ function Rock({
   function judgement(computer: string, user: string) {
     let result;
     if (
-      (computer === 'rock' && user === 'scissor') ||
-      (computer === 'paper' && user === 'rock') ||
-      (computer === 'scissor' && user === 'paper')
+      (computer === 'rock 🪨' && user === 'scissors ✂') ||
+      (computer === 'paper 📜' && user === 'rock 🪨') ||
+      (computer === 'scissors ✂' && user === 'paper 📜')
     ) {
-      if (computer === 'rock') {
-        result = 'You Lose! Rock beats Scissor 🤖';
-      } else if (computer === 'paper') {
-        result = 'You Lose! Paper beats Rock 🤖';
+      if (computer === 'rock 🪨') {
+        result = '🤖 You Lose! rock 🪨 beats scissors ✂';
+      } else if (computer === 'paper 📜') {
+        result = '🤖 You Lose! paper 📜 beats rock 🪨';
       } else {
-        result = 'You Lose! Scissor beats Paper 🤖';
+        result = '🤖 You Lose! scissors ✂ beats paper 📜';
       }
     } else if (
-      (computer === 'rock' && user === 'paper') ||
-      (computer === 'paper' && user === 'scissor') ||
-      (computer === 'scissor' && user === 'rock')
+      (computer === 'rock 🪨' && user === 'paper 📜') ||
+      (computer === 'paper 📜' && user === 'scissors ✂') ||
+      (computer === 'scissors ✂' && user === 'rock 🪨')
     ) {
-      if (user === 'paper') {
-        result = 'You Win! Paper beats Rock 🧠';
-      } else if (user === 'scissor') {
-        result = 'You Win! Scissor beats Paper 🧠';
+      if (user === 'paper 📜') {
+        result = '🧠 You Win! paper 📜 beats rock 🪨';
+      } else if (user === 'scissors ✂') {
+        result = '🧠 You Win! scissors ✂ beats paper 📜';
       } else {
-        result = 'You Win! Rock beats Scissor 🧠';
+        result = '🧠 You Win! rock 🪨 beats scissors ✂';
       }
     } else if (computer === user) {
       result = 'Tie 🤖 ⚔ 🧠';
@@ -54,7 +54,7 @@ function Rock({
       <div className="grid grid-cols-3 gap-2 text-center font-thin">
         <div
           onClick={() => {
-            setChoice('rock');
+            setChoice('rock 🪨');
             setBotChoice(randomChoice);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
@@ -63,7 +63,7 @@ function Rock({
         </div>
         <div
           onClick={() => {
-            setChoice('paper');
+            setChoice('paper 📜');
             setBotChoice(randomChoice);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
@@ -72,7 +72,7 @@ function Rock({
         </div>
         <div
           onClick={() => {
-            setChoice('scissor');
+            setChoice('scissors ✂');
             setBotChoice(randomChoice);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">

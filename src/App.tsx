@@ -8,7 +8,7 @@ function App() {
   const [botChoice, setBotChoice] = useState('');
 
   // Bot's turn
-  const choices = ['rock', 'paper', 'scissor'];
+  const choices = ['rock 🪨', 'paper 📜', 'scissors ✂'];
 
   const randomIndex = () => {
     return Math.floor(Math.random() * choices.length);
