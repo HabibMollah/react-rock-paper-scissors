@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import Result from './Result';
-import Rock from './Rock';
+import ScoreBoard from './ScoreBoard';
+import Weapons from './Weapons';
 
 function App() {
   const [choice, setChoice] = useState('');
@@ -27,7 +27,6 @@ function App() {
       (computer === 'scissors ✂' && user === 'paper 📜')
     )
       return `🤖 You lose ${computer} beats ${user}`;
-
     if (
       (computer === 'rock 🪨' && user === 'paper 📜') ||
       (computer === 'paper 📜' && user === 'scissors ✂') ||
@@ -35,7 +34,7 @@ function App() {
     )
       return `🧠 You win ${user} beats ${computer}`;
 
-    if (computer === '' && user === '') return 'Choose one of the above';
+    if (computer === '' && user === '') return '';
     return 'Tie 🤖 ⚔ 🧠';
   }
 
@@ -48,12 +47,17 @@ function App() {
           Choose your weapon: <br />
           🪨 📜 ✂
         </h1>
-        <Rock
+        <Weapons
           setBotChoice={setBotChoice}
           randomChoice={randomChoice}
           setChoice={setChoice}
+          result={result}
+          setScore={setScore}
+          setBotScore={setBotScore}
+          botScore={botScore}
+          score={score}
         />
-        <Result
+        <ScoreBoard
           botChoice={botChoice}
           botScore={botScore}
           userChoice={choice}

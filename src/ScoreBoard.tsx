@@ -5,7 +5,7 @@ interface Props {
   score: number;
   result: string;
 }
-function Result({ botChoice, botScore, userChoice, score, result }: Props) {
+function ScoreBoard({ botChoice, botScore, userChoice, score, result }: Props) {
   return (
     <div>
       <div className="text-3xl text-center my-8 font-bold tracking-widest">
@@ -33,4 +33,4 @@ function Result({ botChoice, botScore, userChoice, score, result }: Props) {
   );
 }
 
-export default Result;
+export default ScoreBoard;

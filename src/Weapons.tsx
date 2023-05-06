@@ -2,9 +2,23 @@ interface Props {
   setChoice: (a: string) => void;
   setBotChoice: (a: () => string) => void;
   randomChoice: () => string;
+  result: string;
+  setScore: (a: number) => void;
+  setBotScore: (a: number) => void;
+  botScore: number;
+  score: number;
 }
 
-function Rock({ setBotChoice, randomChoice, setChoice }: Props) {
+function Weapons({
+  setBotChoice,
+  randomChoice,
+  setChoice,
+  result,
+  setScore,
+  setBotScore,
+  score,
+  botScore,
+}: Props) {
   return (
     <div>
       <div className="grid grid-cols-3 gap-2 text-center font-thin">
@@ -12,6 +26,8 @@ function Rock({ setBotChoice, randomChoice, setChoice }: Props) {
           onClick={() => {
             setChoice('rock 🪨');
             setBotChoice(randomChoice);
+            if (/win/.test(result)) setScore(score + 1);
+            if (/lose/.test(result)) setBotScore(botScore + 1);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">🪨</div>
@@ -21,6 +37,8 @@ function Rock({ setBotChoice, randomChoice, setChoice }: Props) {
           onClick={() => {
             setChoice('paper 📜');
             setBotChoice(randomChoice);
+            if (/win/.test(result)) setScore(score + 1);
+            if (/lose/.test(result)) setBotScore(botScore + 1);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">📜</div>
@@ -30,6 +48,8 @@ function Rock({ setBotChoice, randomChoice, setChoice }: Props) {
           onClick={() => {
             setChoice('scissors ✂');
             setBotChoice(randomChoice);
+            if (/win/.test(result)) setScore(score + 1);
+            if (/lose/.test(result)) setBotScore(botScore + 1);
           }}
           className="bg-gray-100 text-xl hover:bg-gray-300 rounded-lg">
           <div className="text-6xl py-4">✂</div>
@@ -40,4 +60,4 @@ function Rock({ setBotChoice, randomChoice, setChoice }: Props) {
   );
 }
 
-export default Rock;
+export default Weapons;
